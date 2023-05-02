@@ -30,8 +30,43 @@
                     <a href="{{ route('admin.category.create') }}" class="btn btn-block btn-primary">Добавить</a>
                 </div>
             </div>
-            <div class="cols-12">
-            Таблица
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap">
+                                <thead>
+                                <tr class="bg-dark">
+                                    <th>ID</th>
+                                    <th>Название</th>
+                                    <th>Действия</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($categories as $category)
+                                    <tr>
+                                        <td>{{ $category->id }}</td>
+                                        <td>{{ $category->title }}</td>
+                                        <td class="d-flex">
+                                            <?php /*
+                                            <a class="mr-3" href="{{ route('admin.category.show', $category->id) }}"><i class="fa-solid fa-eye"></i></a>
+                                            <a class="mr-3" href="{{ route('admin.category.edit', $category->id) }}"><i class="fa-solid fa-pencil text-success"></i></a>
+                                            <form action="{{ route('admin.category.delete', $category->id) }}" method="POST">
+                                                @csrf @method('DELETE')
+                                                <button type="submit" class="border-0 bg-transparent">
+                                                    <i class="fa-solid fa-trash-can text-danger" role="button"></i>
+                                                </button>
+                                            </form>
+ */?>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
             </div>
             <!-- /.row -->
         </div>

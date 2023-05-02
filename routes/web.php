@@ -20,6 +20,11 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'prefix'=>'admin'], fun
 		// Это автоматически перекидывает в Вид:	'resources/views/admin/main/index.blade.php'
 		// потому что так указано в контроллере IndexController
 	});
+	// Категории - с добавлением prefix:
+	Route::group(['namespace'=>'Category', 'prefix'=>'categories'], function(){
+		// Для запуска страницы по адресу "/admin/categories":
+		Route::get('/', 'IndexController')->name('admin.category.index');
+	});
 });
 
 Auth::routes();

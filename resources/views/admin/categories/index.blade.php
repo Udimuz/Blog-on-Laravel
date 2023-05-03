@@ -50,14 +50,12 @@
                                         <td class="d-flex">
                                             <a class="mr-3" href="{{ route('admin.category.show', $category->id) }}"><i class="fa-solid fa-eye"></i></a>
                                             <a class="mr-3" href="{{ route('admin.category.edit', $category->id) }}"><i class="fa-solid fa-pencil text-success"></i></a>
-											<?php /*
                                             <form action="{{ route('admin.category.delete', $category->id) }}" method="POST">
                                                 @csrf @method('DELETE')
                                                 <button type="submit" class="border-0 bg-transparent">
                                                     <i class="fa-solid fa-trash-can text-danger" role="button"></i>
                                                 </button>
                                             </form>
- */?>
                                         </td>
                                     </tr>
                                 @endforeach

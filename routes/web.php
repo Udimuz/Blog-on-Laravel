@@ -42,7 +42,18 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'prefix'=>'admin'], fun
 		Route::patch('/{tag}', 'UpdateController')->name('admin.tag.update');
 		Route::delete('/{tag}', 'DeleteController')->name('admin.tag.delete');
 	});
-
+	// Сообщения:
+	Route::group(['namespace'=>'Post', 'prefix'=>'posts'], function(){
+		// Для запуска страницы по адресу "/admin/posts":
+		Route::get('/', 'IndexController')->name('admin.post.index');
+		Route::get('/create', 'CreateController')->name('admin.post.create');
+		// Здесь делали перенаправление на '/', но я решил указать '/store' чтобы точнее видеть. А то со страницей создания путал
+		Route::post('/store', 'StoreController')->name('admin.post.store');
+		Route::get('/{post}', 'ShowController')->name('admin.post.show');
+		Route::get('/{post}/edit', 'EditController')->name('admin.post.edit');
+		Route::patch('/{post}', 'UpdateController')->name('admin.post.update');
+		Route::delete('/{post}', 'DeleteController')->name('admin.post.delete');
+	});
 });
 
 Auth::routes();

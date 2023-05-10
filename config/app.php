@@ -183,6 +183,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+		'Dima' => App\Helpers\Dima::class,
     ])->toArray(),
 
 ];

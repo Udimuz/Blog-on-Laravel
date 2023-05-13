@@ -31,6 +31,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                {{ link_collect($link, 'admin.user.index') }}
+                    <i class="nav-icon fa-solid fa-users"></i>
+                    <p>Пользователи</p>
+                </a>
+            </li>
+            <li class="nav-item">
                 {{ link_collect($link, 'admin.post.index') }}
                     <i class="nav-icon fa-solid fa-envelopes-bulk"></i>
                     <p>Сообщения <span class="badge badge-info right">{{ Dima::postsCount() }}</span></p>

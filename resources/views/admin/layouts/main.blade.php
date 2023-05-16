@@ -44,8 +44,11 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="{{ route('admin.main.index') }}" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
+                <li class="nav-item">
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <input class="btn btn-outline-primary" type="submit" value="Выйти">
+                    </form>
                 </li>
             </ul>
         </div>

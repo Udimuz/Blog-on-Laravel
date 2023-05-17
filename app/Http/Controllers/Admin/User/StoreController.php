@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\User\StoreRequest;
 use App\Mail\User\PasswordMail;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -31,6 +32,10 @@ class StoreController extends Controller
 
 		// с помощью методов фасада Mail отправляем новый объект класса PasswordMail передав в его конструктор сгенерированный пароль
 		Mail::to($data['email'])->send(new PasswordMail($data['name'], $password));
+
+		// Запуск сценария связанный с тем, что мы только что зарегистрировали пользователя:	который принимает аргумент $user
+		// Это нужно чтобы после регистрации у нас было отправлено письмо на почту которая у данного пользователя
+		event(new Registered($user));
 
 		return redirect()->route('admin.user.index');
 	}

@@ -13,7 +13,7 @@ Route::group(['namespace'=>'App\Http\Controllers\Main'], function(){
 
 // Админ-часть сайта:
 // prefix добавит везде к ссылке впереди адрес "/admin/". Это чтобы не создавать такие роуты '/admin/post', '/admin/add', а сократить
-Route::group(['namespace'=>'App\Http\Controllers\Admin', 'prefix'=>'admin', 'middleware'=>['auth','admin_mdl']], function() {
+Route::group(['namespace'=>'App\Http\Controllers\Admin', 'prefix'=>'admin', 'middleware'=>['auth','verified','admin_mdl']], function() {
 	Route::group(['namespace'=>'Main'], function(){
 		// Для запуска страницы по адресу "/admin/":
 		Route::get('/', 'IndexController')->name('admin.main.index');
@@ -67,6 +67,6 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'prefix'=>'admin', 'mid
 	});
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

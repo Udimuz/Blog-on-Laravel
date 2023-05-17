@@ -26,7 +26,8 @@ class StoreRequest extends FormRequest
         return [
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users',
-            'password' => 'required|string',
+            //'password' => 'required|string',
+			'password' => 'nullable|string',
             'role' => 'required|integer',
         ];
     }
@@ -42,7 +43,7 @@ class StoreRequest extends FormRequest
 			'email.email' => 'Ваша почта должна соответствовать формату name@some.domain.com',
 			'email.unique' => 'Пользователь с таким Email уже существует',
 
-			'password.required' => 'Это поле необходимо для заполнения',
+			//'password.required' => 'Это поле необходимо для заполнения',
 			'password.string' => 'Пароль должен быть строкой',
 		];
 	}

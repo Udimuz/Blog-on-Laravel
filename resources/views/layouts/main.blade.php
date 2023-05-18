@@ -34,6 +34,14 @@
                         <li class="nav-item"><a class="nav-link" href="{{ route('personal.main.index') }}">Войти</a></li>
                     @endguest
                     */ @endphp
+                    @auth
+                        <li class="nav-item mr-3 mt-1">{{ Auth::user()->name }}</li>
+                        <form action="{{ route('logout') }}" method="post">@csrf
+                            <input class="" type="submit" value="Выйти">
+                        </form>
+                    @else
+                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Войти</a></li>
+                    @endauth
                 </ul>
             </div>
         </nav>

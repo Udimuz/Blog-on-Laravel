@@ -69,13 +69,18 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'prefix'=>'admin', 'mid
 // Кабинет пользователя:
 Route::group(['namespace'=>'App\Http\Controllers\Personal', 'prefix'=>'personal', 'middleware'=>['auth','verified']], function() {
 	// Для запуска страницы по адресу "/personal/main":
-	Route::group(['namespace'=>'Main', 'prefix'=>'main'], function(){
-		Route::get('/', 'IndexController')->name('personal.main.index');
-	});
+//	Route::group(['namespace'=>'Main', 'prefix'=>'main'], function(){
+//		Route::get('/', 'IndexController')->name('personal.main.index');
+//	});
+	// Для запуска страницы по адресу "/personal":	Переделал в такое, чтобы меню слева лучше подсвечивало
+	Route::get('/', 'Main\IndexController')->name('personal.main.index');
+
 	// Для страницы по адресу "/personal/liked":
 	Route::group(['namespace'=>'Liked', 'prefix'=>'liked'], function(){
 		Route::get('/', 'IndexController')->name('personal.liked.index');
-//		Route::delete('/{post}', 'DeleteController')->name('personal.liked.delete');
+		Route::delete('/{post}', 'DeleteController')->name('personal.liked.delete');
+		// Страница одного Сообщения "/personal/liked/4":
+		Route::get('/{post}', [App\Http\Controllers\Personal\Main\IndexController::class,'postShow'])->name('personal.post.show');
 	});
 //	// Для страницы по адресу "/personal/comments":
 	Route::group(['namespace'=>'Comment', 'prefix'=>'comments'], function(){

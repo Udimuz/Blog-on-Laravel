@@ -12,7 +12,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('personal.main.index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('personal.main.index') }}">Главная</a></li>
                         <li class="breadcrumb-item active">Понравившиеся посты</li>
                     </ol>
                 </div><!-- /.col -->
@@ -44,7 +44,7 @@
                                         <td>{{ $post->id }}</td>
                                         <td>{{ $post->title }}</td>
                                         <td class="d-flex">
-                                            <a class="mr-3" href="{{ route('admin.post.show', $post->id) }}"><i class="fa-solid fa-eye"></i></a>
+                                            <a class="mr-3" href="{{ route('personal.post.show', $post->id) }}"><i class="fa-solid fa-eye"></i></a>
                                             <form action="{{ route('personal.liked.delete', $post->id) }}" method="POST">
                                                 @csrf @method('DELETE')
                                                 <button type="submit" class="border-0 bg-transparent">

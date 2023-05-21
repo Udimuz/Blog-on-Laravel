@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\PostUserLike;
 use App\Models\Tag;
 use App\Models\User;
+use JetBrains\PhpStorm\NoReturn;
 
 class IndexController extends Controller
 {
@@ -15,10 +16,15 @@ class IndexController extends Controller
 		//$user = auth()->user();
 
 		$data = [
-			'postLikesCount' => 12,	//PostUserLike::all()->count(),
+			'postLikesCount' => PostUserLike::all()->count(),
 			'commentsCount' => 34,	//auth()->user()->comments->count(),
 		];
 
 		return view('personal.main.index', compact('data'));
+	}
+
+	public function postShow(Post $post): \Illuminate\View\View
+	{
+		return view('personal.liked.post_show', compact('post'));
 	}
 }

@@ -29,4 +29,10 @@ class Post extends Model
 		return $this->belongsTo(Category::class, 'category_id', 'id');
 	}
 
+	// Пользователи которые нажимали Лайк:
+	public function likedUsers()
+	{
+		return $this->belongsToMany(User::class, 'post_user_likes', 'post_id', 'user_id');
+	}
+
 }

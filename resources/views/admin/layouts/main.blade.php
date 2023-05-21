@@ -41,6 +41,9 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
+                {{ Auth::user()->name." - ".\App\Models\User::getRoles()[auth()->user()->role]." (".Auth::user()->email.")" }}
+            </ul>
+            <ul class="navbar-nav">
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="{{ route('admin.main.index') }}" class="nav-link">Home</a>
                 </li>

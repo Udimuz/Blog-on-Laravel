@@ -16,8 +16,9 @@ class IndexController extends Controller
 		//$user = auth()->user();
 
 		$data = [
-			'postLikesCount' => PostUserLike::all()->count(),
-			'commentsCount' => 34,	//auth()->user()->comments->count(),
+			//'postLikesCount' => PostUserLike::all()->count(),	// Этот вариант неправильно здесь создан. Выдаст Лайки всех пользователей, а нужно только одного
+			'postLikesCount' => auth()->user()->likedPosts->count(),	// Этот вариант правильный. Выдаст Лайки только того пользователя, кто открыл эту страницу, свой Личный кабинет
+			'commentsCount' => auth()->user()->comments->count(),
 		];
 
 		return view('personal.main.index', compact('data'));

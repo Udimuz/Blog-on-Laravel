@@ -11,9 +11,10 @@ use App\Models\User;
 
 class IndexController extends Controller
 {
+	// http://blog.loc/personal/comments
     public function __invoke() {
-		return "Comments";
-//		$comments = auth()->user()->comments;
+		//return "Comments";
+		$comments = auth()->user()->comments;
 //		$comments = Comment::where('user_id', auth()->user()->id)->get();
 //		$comments = Comment::where('user_id', auth()->user()->id)->with('post')->get();
 		// 11.01.2023 собрал способ с привязкой Сообщений:

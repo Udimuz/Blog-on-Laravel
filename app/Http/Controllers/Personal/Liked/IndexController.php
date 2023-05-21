@@ -10,6 +10,7 @@ use App\Models\User;
 
 class IndexController extends Controller
 {
+	// http://blog.loc/personal/liked
     public function __invoke() {
 		//return "Likes";
 		$posts = auth()->user()->likedPosts;	//dd($posts);

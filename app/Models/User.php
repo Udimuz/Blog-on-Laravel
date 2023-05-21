@@ -39,7 +39,7 @@ class User extends Authenticatable implements MustVerifyEmail
 	//	Отношения: один-ко-многим
 	public function comments()
 	{
-		//return $this->hasMany(Comment::class, 'user_id', 'id');
+		return $this->hasMany(Comment::class, 'user_id', 'id');
 	}
 
 	public function post() {

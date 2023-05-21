@@ -34,7 +34,7 @@
                                 <tr class="bg-dark">
                                     <th>ID</th>
                                     <th>Текст</th>
-                                    <th>к какому Сообщению</th>
+                                    <th>к Сообщению</th>
                                     <th>Действия</th>
                                 </tr>
                                 </thead>
@@ -43,7 +43,7 @@
                                     <tr>
                                         <td>{{ $comment->id }}</td>
                                         <td>{{ $comment->message }}</td>
-                                        <td>{{ $comment->post->title }}</td>
+                                        <td>@php /*$comment->post->title*/ @endphp</td>
                                         <td class="d-flex">
                                             <a class="mr-3" href="{{ route('personal.comment.edit', $comment->id) }}"><i class="fa-solid fa-pencil text-success"></i></a>
                                             <form action="{{ route('personal.comment.delete', $comment->id) }}" method="POST">

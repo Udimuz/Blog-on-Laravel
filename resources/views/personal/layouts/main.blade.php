@@ -42,7 +42,7 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
-                {{ Auth::user()->name." - ".\App\Models\User::getRoles()[auth()->user()->role]." (".Auth::user()->email.")" }}
+                {{ Auth::user()->id." - ".Auth::user()->name." - ".\App\Models\User::getRoles()[auth()->user()->role]." (".Auth::user()->email.")" }}
                 @php /*    {{ userInfo() }} */ @endphp
             </ul>
             <ul class="navbar-nav">

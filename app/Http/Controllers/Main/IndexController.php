@@ -10,10 +10,7 @@ class IndexController extends Controller
 {
 	public function __invoke() {
 		//return view('main.index');
-		$posts = Post::paginate(6);
-		$randomPosts = Post::get()->random(4);
-		$likedPosts = Post::withCount('likedUsers')->orderBy('liked_users_count', 'DESC')->get()->take(4);
-		return view('main.index', compact('posts', 'randomPosts', 'likedPosts'));
-		//return redirect()->route('post.index');	// Перекидывать с главной страницы на страницу с постами
+		// Теперь, перекидываем с главной страницы на страницу с постами:
+		return redirect()->route('post.index');
 	}
 }

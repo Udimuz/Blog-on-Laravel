@@ -16,11 +16,11 @@ Route::group(['namespace'=>'App\Http\Controllers\Post', 'prefix'=>'posts'], func
 	Route::get('/', 'IndexController')->name('post.index');
 	Route::get('/{post}', 'ShowController')->name('post.show');
 
-	// Такой вариант сборки (приём) называется "нестед роут"
+	// Такой вариант сборки (приём) называется "нестед роут", вложенный роут (вложенные ссылки)
 	// Для запуска страницы по адресу "/post/10/comments":
-//	Route::group(['namespace'=>'Comment', 'prefix'=>'{post}/comments'], function() {
-//		Route::post('/', 'StoreController')->name('post.comment.store');
-//	});
+	Route::group(['namespace'=>'Comment', 'prefix'=>'{post}/comments'], function() {
+		Route::post('/', 'StoreController')->name('post.comment.store');
+	});
 
 	// Ещё один вложенный роутинг, для Лайков:
 //	Route::group(['namespace'=>'Like', 'prefix'=>'{post}/likes'], function() {

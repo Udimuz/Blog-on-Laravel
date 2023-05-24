@@ -45,13 +45,12 @@
                         </div>
                     </section>
                     @endif
-                    @php /*
                     <section class="mb-5">
                         <h2 class="section-title mb-4">Комментарии ({{ $post->comments->count() }})</h2>
                         @foreach($post->comments as $comment)
                         <div class="comment-text mb-3">
                             <span class="username">
-                                <div>{{ $comment->user->name }}</div>
+                                <div><b>{{ $comment->user->name }}:</b></div>
                                 <span class="text-muted float-right">{{ $comment->DateAsCarbon->diffForHumans() }}</span>
                             </span>
                             {{ $comment->message }}
@@ -77,8 +76,6 @@
                         </form>
                     </section>
                     @endauth
-                    */
-                    @endphp
                 </div>
             </div>
         </div>

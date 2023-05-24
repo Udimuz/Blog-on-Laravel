@@ -28,8 +28,8 @@ class AdminMiddleware
 		// Нужно подключить приведение типов (int) потому что из базы могут браться данные типа String. Хотя, у меня и без этого работало, в базе у меня тип Integer. Может, это у учителя там был тип String
 		//if (auth()->check() === false  ||  (int) auth()->user()->role !== \App\Models\User::ROLE_ADMIN)
 		if ((int) auth()->user()->role !== \App\Models\User::ROLE_ADMIN)
-			abort(403);
-			//return redirect()->route('personal.main.index');
+			return redirect()->route('personal.main.index');
+			//abort(403);
         return $next($request);
     }
 }

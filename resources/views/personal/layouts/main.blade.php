@@ -42,8 +42,7 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
-                {{ Auth::user()->id." - ".Auth::user()->name." - ".\App\Models\User::getRoles()[auth()->user()->role]." (".Auth::user()->email.")" }}
-                @php /*    {{ userInfo() }} */ @endphp
+                {{ Dima::userInfo() }}
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">

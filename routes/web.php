@@ -23,10 +23,21 @@ Route::group(['namespace'=>'App\Http\Controllers\Post', 'prefix'=>'posts'], func
 	});
 
 	// Ещё один вложенный роутинг, для Лайков:
-//	Route::group(['namespace'=>'Like', 'prefix'=>'{post}/likes'], function() {
-//		Route::post('/', 'StoreController')->name('post.like.store');
-//	});
+	Route::group(['namespace'=>'Like', 'prefix'=>'{post}/likes'], function() {
+		Route::post('/', 'StoreController')->name('post.like.store');
+	});
 
+});
+
+// Категории:
+Route::group(['namespace'=>'App\Http\Controllers\Category', 'prefix'=>'categories'], function(){
+	// Для запуска страницы по адресу "/categories/":
+	Route::get('/', 'IndexController')->name('category.index');
+
+	// Для запуска страницы по адресу "/categories/3":
+	Route::group(['namespace'=>'Post', 'prefix'=>'{category}'], function() {
+		Route::get('/', 'IndexController')->name('category.post.index');
+	});
 });
 
 // Админ-часть сайта:

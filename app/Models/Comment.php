@@ -26,4 +26,14 @@ class Comment extends Model
 		//return $this->created_at;
 		return Carbon::parse($this->created_at);	// К модели этого комментария здесь можно добраться через $this, потому что мы итак внутри находимся, он уже вложен
 	}
+
+	// Здесь сам собрал привязку-Отношения, к какому Сообщению принадлежит комментарий. Обращаюсь к этому:
+	// 1) в контроллере "app/Http/Controllers/Personal/Comment/IndexController.php":
+	// 2) в шаблоне списка сообщений "resources/views/personal/comment/index.blade.php"
+	// 3) в шаблоне редактирования сообщения "resources/views/personal/comment/edit.blade.php"
+	// Во всех этих файлах вызываю название Сообщения так:	$comment->post->title
+	public function post() {	// - имеет один -
+		return $this->hasOne(Post::class, 'id', 'post_id');
+	}
+
 }

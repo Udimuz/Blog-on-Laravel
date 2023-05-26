@@ -9,7 +9,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1 class="m-0">Редактирование комментария</h1>
-                        <h5 class="mt-3">К сообщению: <b>@php /* $comment->post->title */ @endphp</b></h5>
+                        <h5 class="mt-3">К сообщению: <b>{{ $comment->post->title }}</b></h5>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">

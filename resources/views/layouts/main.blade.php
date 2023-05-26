@@ -24,9 +24,8 @@
             <div class="collapse navbar-collapse" id="edicaMainNav">
                 <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                     <li class="nav-item"><a class="nav-link" href="{{ route('post.index') }}">Блог</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Категории</a></li>
-                    @php /*
                     <li class="nav-item"><a class="nav-link" href="{{ route('category.index') }}">Категории</a></li>
+                    @php /*
                     @auth()
                         <li class="nav-item"><a class="nav-link" href="{{ route('personal.main.index') }}">Личный кабинет</a></li>
                     @endauth

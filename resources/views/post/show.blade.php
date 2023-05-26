@@ -15,7 +15,8 @@
                     </div>
                 </div>
             </section>
-            @php /*
+            <div class="row">
+                <div class="col-lg-9 mx-auto">
                     <section class="py-3">
                         @auth()
                             <form action="{{ route('post.like.store', $post->id) }}" method="post">
@@ -27,10 +28,6 @@
                             <div><span>{{ $post->liked_users_count }}</span> <i class="far fa-heart"></i></div>
                         @endauth
                     </section>
-            */
-            @endphp
-            <div class="row">
-                <div class="col-lg-9 mx-auto">
                     @if($relatedPosts->count() > 0)
                     <section class="related-posts">
                         <h2 class="section-title mb-4">Схожие сообщения (related posts)</h2>

@@ -28,6 +28,12 @@ function link_collect($link, $address): void {
                     <p>Комментарии</p>
                 </a>
             </li>
+            <li class="nav-item">
+                {{ link_collect($link, 'personal.profile.index') }}
+                    <i class="nav-icon far fa-user"></i>
+                    <p>Профиль</p>
+                </a>
+            </li>
         </ul>
     </div>
     <!-- /.sidebar -->

@@ -111,12 +111,17 @@ Route::group(['namespace'=>'App\Http\Controllers\Personal', 'prefix'=>'personal'
 		// Страница одного Сообщения "/personal/liked/4":
 		Route::get('/{post}', [App\Http\Controllers\Personal\Main\IndexController::class,'postShow'])->name('personal.post.show');
 	});
-//	// Для страницы по адресу "/personal/comments":
+	// Для страницы по адресу "/personal/comments":
 	Route::group(['namespace'=>'Comment', 'prefix'=>'comments'], function(){
 		Route::get('/', 'IndexController')->name('personal.comment.index');
 		Route::get('/{comment}/edit', 'EditController')->name('personal.comment.edit');
 		Route::patch('/{comment}', 'UpdateController')->name('personal.comment.update');
 		Route::delete('/{comment}', 'DeleteController')->name('personal.comment.delete');
+	});
+	// Профиль:		/personal/profile
+	Route::group(['namespace'=>'Profile', 'prefix'=>'profile'], function(){
+		Route::get('/', 'IndexController')->name('personal.profile.index');
+		Route::patch('/', 'UpdateController')->name('personal.profile.update');
 	});
 });
 
